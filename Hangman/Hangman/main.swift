@@ -25,7 +25,7 @@ while gameIsActive {
     //Unwraps the users response and assigns it to a variable
     //Checks it's not an empty string
     //Checks it's no more than one characters
-    guard let userResponse = readLine(), userResponse != "",
+    guard let userResponse = readLine()?.lowercased(), userResponse != "",
             userResponse.count == 1 else {
             print("Check your input and try again!")
             continue
@@ -45,7 +45,7 @@ while gameIsActive {
     
     //Searches for users letter response in word. If found adds it to the correctLetters array
     for (index, letter) in randomWord.enumerated() {
-        if userResponse.lowercased() == String(letter) {
+        if userResponse == String(letter) {
             correctLettersArray[index] = String(letter)
             userGuessedLetter = true
         }
